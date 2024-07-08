@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: api-service
+spec:
+  selector:
+    app: api  # Match the labels in your Deployment
+  ports:
+    - protocol: TCP
+      port: 80  # Port exposed by the Service
+      targetPort: 5000  # Port your containers are listening on
+  type: ClusterIP 

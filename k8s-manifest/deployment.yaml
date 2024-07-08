@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-deployment
+  labels:
+    app: api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api
+  template:
+    metadata:
+      labels:
+        app: api
+    spec:
+      containers:
+        - name: api
+          image: ghcr.io/satyazzz123/api-deployment/api:latest  # Replace with your GHCR image path and tag
+          ports:
+            - containerPort: 5000  # Adjust port to match your Dockerfile's EXPOSE statement
